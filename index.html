@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Servicio técnico · Sveltia</title>
+<!--
+  servicio.sveltia.mx · reenvío a la página de servicio técnico del Sistema de Gestión (v4.1-b17).
+  NO es instalable a propósito (sin manifest ni *-web-app-capable): ver la nota de sgs.sveltia.mx,
+  el modo aplicación rompía el reenvío en el celular.
+  La dirección del sistema vive en UN solo lugar: el href del botón de abajo. Si algún día se hace
+  una implementación NUEVA de Apps Script (no una versión nueva), se cambia aquí.
+  Conserva los parámetros: servicio.sveltia.mx/?st=ST-2026-020&t=… llega completo al sistema.
+  Sin parámetros abre el formulario para una solicitud nueva (?st=nuevo).
+-->
+<style>
+  body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; background:#f4f6f7; color:#1d1f22; }
+  main { max-width:420px; margin:18vh auto 0; padding:24px; text-align:center; }
+  a.boton { display:inline-block; padding:15px 28px; border-radius:11px; background:#5DA831; color:#fff; font-weight:700; text-decoration:none; font-size:17px; }
+  .mini { color:#6b7075; font-size:14px; }
+  #abriendo { margin-bottom:18px; }
+</style>
+</head>
+<body>
+<main>
+  <p id="abriendo" class="mini">Abriendo el servicio técnico de Sveltia…</p>
+  <p><a class="boton" id="entrar" href="https://script.google.com/macros/s/AKfycbw-yLmGQqz-HqHKM-KMtwDiI20OlKYpqKAEpnjZpgdnhJBsj5r1-I8Hm9cX58s5QfKejw/exec?st=nuevo">Entrar</a></p>
+  <p class="mini">¿Dudas? WhatsApp 55 8046 5930</p>
+</main>
+<script>
+(function () {
+  var a = document.getElementById('entrar');
+  var base = a.getAttribute('href').split('?')[0];
+  var q = location.search && /[?&]st=/.test(location.search) ? location.search : '?st=nuevo';
+  a.setAttribute('href', base + q);
+  location.replace(base + q);
+  // Si a los 4 segundos el salto no ocurrió, queda el botón: nunca una pantalla en blanco.
+  setTimeout(function () { document.getElementById('abriendo').textContent = 'Si no se abrió solo, toca Entrar.'; }, 4000);
+})();
+</script>
+</body>
+</html>
