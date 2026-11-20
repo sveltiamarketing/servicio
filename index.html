@@ -6,11 +6,11 @@
 <meta name="robots" content="noindex">
 <title>Servicio técnico · Sveltia</title>
 <!--
-  servicio.sveltia.mx · reenvío a la página de servicio técnico del Sistema de Gestión (v4.1-b17).
-  NO es instalable a propósito (sin manifest ni *-web-app-capable): ver la nota de sgs.sveltia.mx,
-  el modo aplicación rompía el reenvío en el celular.
-  La dirección del sistema vive en UN solo lugar: el href del botón de abajo. Si algún día se hace
-  una implementación NUEVA de Apps Script (no una versión nueva), se cambia aquí.
+  servicio.sveltia.mx · reenvío a la página de servicio técnico del Sistema de Gestión.
+  v4.1-b18.0 (18-nov-2026): apunta directo al servidor nuevo (sgs.sveltia.mx). Antes iba al /exec
+  de Apps Script y de ahí el puente lo pasaba al servidor; ya no depende del sistema viejo.
+  NO es instalable a propósito (sin manifest ni *-web-app-capable): el modo aplicación rompía el
+  reenvío en el celular. La dirección del sistema vive en UN solo lugar: el href del botón.
   Conserva los parámetros: servicio.sveltia.mx/?st=ST-2026-020&t=… llega completo al sistema.
   Sin parámetros abre el formulario para una solicitud nueva (?st=nuevo).
 -->
@@ -25,7 +25,7 @@
 <body>
 <main>
   <p id="abriendo" class="mini">Abriendo el servicio técnico de Sveltia…</p>
-  <p><a class="boton" id="entrar" href="https://script.google.com/macros/s/AKfycbw-yLmGQqz-HqHKM-KMtwDiI20OlKYpqKAEpnjZpgdnhJBsj5r1-I8Hm9cX58s5QfKejw/exec?st=nuevo">Entrar</a></p>
+  <p><a class="boton" id="entrar" href="https://sgs.sveltia.mx/?st=nuevo">Entrar</a></p>
   <p class="mini">¿Dudas? WhatsApp 55 8046 5930</p>
 </main>
 <script>
