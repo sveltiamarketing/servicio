@@ -13,6 +13,7 @@
   reenvío en el celular. La dirección del sistema vive en UN solo lugar: el href del botón.
   Conserva los parámetros: servicio.sveltia.mx/?st=ST-2026-020&t=… llega completo al sistema.
   Sin parámetros abre el formulario para una solicitud nueva (?st=nuevo).
+  v4.1-b20 (26-nov-2026): también pasa ?gar=CLAVE (el QR de la garantía que va dentro de la caja).
 -->
 <style>
   body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; background:#f4f6f7; color:#1d1f22; }
@@ -32,7 +33,8 @@
 (function () {
   var a = document.getElementById('entrar');
   var base = a.getAttribute('href').split('?')[0];
-  var q = location.search && /[?&]st=/.test(location.search) ? location.search : '?st=nuevo';
+  // v4.1-b20 · ?gar=CLAVE es el QR de la hoja de garantía que va en la caja: también pasa completo.
+  var q = location.search && /[?&](st|gar)=/.test(location.search) ? location.search : '?st=nuevo';
   a.setAttribute('href', base + q);
   location.replace(base + q);
   // Si a los 4 segundos el salto no ocurrió, queda el botón: nunca una pantalla en blanco.
